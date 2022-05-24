@@ -1,19 +1,18 @@
 package com.qa.ims.persistence.domain;
 
 public class Item {
-
     private Long id;
     private String name;
-    private double value;
+    private Double value;
 
-    public Item(Long id, String name, double value) {
+    public Item(Long id, String name, Double value) {
         super();
         this.id = id;
         this.name = name;
         this.value = value;
     }
 
-    public Item(String name, double value) {
+    public Item(String name, Double value) {
         super();
         this.name = name;
         this.value = value;
@@ -35,11 +34,11 @@ public class Item {
         this.name = name;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
@@ -54,9 +53,7 @@ public class Item {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        long temp;
-        temp = Double.doubleToLongBits(value);
-        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((value == null) ? 0 : value.hashCode());
         return result;
     }
 
@@ -79,7 +76,10 @@ public class Item {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
+        if (value == null) {
+            if (other.value != null)
+                return false;
+        } else if (!value.equals(other.value))
             return false;
         return true;
     }
