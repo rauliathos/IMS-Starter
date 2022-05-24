@@ -1,0 +1,1 @@
+INSERT INTO `item_table` (`name`, `value`) VALUES ('mouse', 3.5);
