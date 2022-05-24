@@ -8,12 +8,12 @@ import java.util.List;
  */
 public interface CrudController<T> {
 
-	List<T> readAll();
+    List<T> readAll();
 
-	T create();
+    T create();
 
-	T update();
+    T update();
 
-	int delete();
+    int delete();
 
 }

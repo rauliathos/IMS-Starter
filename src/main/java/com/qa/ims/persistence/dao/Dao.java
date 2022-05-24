@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface Dao<T> {
 
-	List<T> readAll();
-	
-	T read(Long id);
+    List<T> readAll();
 
-	T create(T t);
+    T read(Long id);
 
-	T update(T t);
+    T create(T t);
 
-	int delete(long id);
+    T update(T t);
 
-	T modelFromResultSet(ResultSet resultSet) throws SQLException;
+    int delete(long id);
+
+    T modelFromResultSet(ResultSet resultSet) throws SQLException;
 }
