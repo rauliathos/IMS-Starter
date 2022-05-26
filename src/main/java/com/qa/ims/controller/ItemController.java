@@ -14,7 +14,6 @@ import com.qa.ims.utils.Utils;
 public class ItemController implements CrudController<Item>{
     public static final Logger LOGGER = LogManager.getLogger();
 
-    
     private ItemDAO itemDAO;
     private Utils utils;
     
@@ -60,7 +59,7 @@ public class ItemController implements CrudController<Item>{
         LOGGER.info("Please enter a value");
         Double value = utils.getDouble();
         Item item = itemDAO.update(new Item(id, name, value));
-        LOGGER.info("Customer Updated");
+        LOGGER.info("Item Updated");
         return item;
     }
     

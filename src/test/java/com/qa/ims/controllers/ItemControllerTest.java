@@ -14,7 +14,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.qa.ims.controller.ItemController;
 import com.qa.ims.persistence.dao.ItemDAO;
-import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Item;
 import com.qa.ims.utils.Utils;
 
@@ -51,6 +50,7 @@ public class ItemControllerTest {
     }
     
     @Test
+    
     public void testReadAll() {
         List<Item> items = new ArrayList<>();
         items.add(new Item(2L,"glass", 1.5));

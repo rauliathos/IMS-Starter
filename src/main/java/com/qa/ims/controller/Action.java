@@ -8,6 +8,7 @@ import com.qa.ims.utils.Utils;
 /**
  * Action is a collection of commands which are used to determine the type of
  * function to apply to an entity.
+ * 
  *
  */
 public enum Action {

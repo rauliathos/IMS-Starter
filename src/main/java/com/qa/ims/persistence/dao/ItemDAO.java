@@ -17,7 +17,6 @@ import com.qa.ims.utils.DBUtils;
 public class ItemDAO implements Dao<Item> {
 
     public static final Logger LOGGER = LogManager.getLogger();
-
     @Override
     public Item modelFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getLong("id");
@@ -37,7 +36,7 @@ public class ItemDAO implements Dao<Item> {
                 items.add(modelFromResultSet(resultSet));
             }
             return items;
-        } catch (SQLException e) {
+        } catch (SQLException e) { 
             LOGGER.debug(e);
             LOGGER.error(e.getMessage());
         }

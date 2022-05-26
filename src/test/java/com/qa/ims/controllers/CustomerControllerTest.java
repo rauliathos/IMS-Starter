@@ -42,7 +42,7 @@ public class CustomerControllerTest {
         Mockito.verify(utils, Mockito.times(2)).getString();
         Mockito.verify(dao, Mockito.times(1)).create(created);
     }
-
+ 
     @Test
     public void testReadAll() {
         List<Customer> customers = new ArrayList<>();
