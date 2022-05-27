@@ -21,10 +21,12 @@ public class OrderItemDAOTest {
     public void testCreate() {
         final OrderItem created = new OrderItem(1L, 2L, 2L);
         assertEquals(created, DAO.create(created));
+      //  assertEquals(null, DAO.create(created));
     }
 
     @Test
     public void testDeleteItem() {
         assertEquals(1, DAO.deleteItem(1L, 1L));
+        // assertEquals(0, DAO.deleteItem(1L, 1L));
     }
 }

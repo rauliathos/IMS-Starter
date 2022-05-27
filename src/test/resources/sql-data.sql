@@ -1,7 +1,7 @@
-INSERT INTO `order_table`( `customer_id`) VALUES ( 1L);
-INSERT INTO `order_table`( `customer_id`) VALUES ( 2L);
-INSERT INTO `order_table`( `customer_id`) VALUES (3L);
-INSERT INTO `order_table`( `customer_id`) VALUES (4L);
+--INSERT INTO `order_table`( `customer_id`) VALUES ( 1L);
+--INSERT INTO `order_table`( `customer_id`) VALUES ( 2L);
+--INSERT INTO `order_table`( `customer_id`) VALUES (3L);
+--INSERT INTO `order_table`( `customer_id`) VALUES (4L);
 
 
 
@@ -21,10 +21,10 @@ INSERT INTO `item_table` (`name`, `value`) VALUES ('spoon', 2.5);
 INSERT INTO `item_table` (`name`, `value`) VALUES ('car', 10000);
 
 
-
-INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (1,2,3);
-INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (2,1,1);
-INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (3,2,1);
-INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (4,3,2);
+--
+--INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (1,2,3);
+--INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (2,1,1);
+--INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (3,2,1);
+--INSERT INTO `order_item`(`order_id`,`item_id`,`quantity`) VALUES (4,3,2);
 
 
