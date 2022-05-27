@@ -59,7 +59,7 @@ public class OrderDAO implements Dao<Order>{
             LOGGER.error(e.getMessage());
         }
         return null;
-    }
+    } 
     
 //  CREATEs an Order in the db
   @Override

@@ -54,6 +54,9 @@ public class OrderController implements CrudController<Order> {
       
       LOGGER.info("Choose what do you want to do:");
       LOGGER.info("ORDER:  TO add item to order");
+      
+      LOGGER.info("READ:  TO read  order");
+      
       LOGGER.info("DELETE: Enter order_id TO delete item from order ");
       LOGGER.info("TOTAL: Enter order_id  TO calculate total of that order");
       String choice = utils.getString();//.toLowerCase();
@@ -71,6 +74,10 @@ public class OrderController implements CrudController<Order> {
           orderItemsDAO.create(new OrderItem(order_id, item_id, quantity));
           LOGGER.info("Order Updated!!!");
 
+          
+        
+
+          
 
 
       }else if (choice.equals("delete") ) {
@@ -84,12 +91,11 @@ public class OrderController implements CrudController<Order> {
           
       }else if (choice.equals("total")) {
           LOGGER.info(" Enter order_id to calculate total");
-          Long order_id_total = utils.getLong();
-          System.out.println(orderItemsDAO.calcTotal(order_id_total));
+          Long order_id_total = utils.getLong(); 
+         // System.out.println(orderItemsDAO.calcTotal(order_id_total));
          orderItemsDAO.calcTotal(order_id_total);
 
-          ;
-          
+         
       } else {
           LOGGER.info("IF FAILED");
       }

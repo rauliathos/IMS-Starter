@@ -22,7 +22,7 @@ public class ItemController implements CrudController<Item>{
         this.itemDAO = itemDAO;
         this.utils = utils;
     }
-    
+
     //reads all items to the logger
     @Override
     public List<Item> readAll() {

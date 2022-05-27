@@ -18,7 +18,8 @@ import com.qa.ims.utils.DBUtils;
 public class OrderItemDAO implements Dao<OrderItem> {
 
     public static final Logger LOGGER = LogManager.getLogger();
-@Override
+
+    @Override
     public OrderItem modelFromResultSet(ResultSet resultSet) throws SQLException {
         Long order_id = resultSet.getLong("order_id");
         Long item_id = resultSet.getLong("item_id");
@@ -41,14 +42,11 @@ public class OrderItemDAO implements Dao<OrderItem> {
             LOGGER.error(e.getMessage());
         }
         return new ArrayList<>();
-        
-        
-    
+
     }
 
- 
     public OrderItem readLatest() {
-        
+
         try (Connection connection = DBUtils.getInstance().getConnection();
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement
@@ -79,72 +77,72 @@ public class OrderItemDAO implements Dao<OrderItem> {
         return null;
     }
 
-public int deleteItem(Long order_id, Long item_id) {
-    try (Connection connection = DBUtils.getInstance().getConnection();
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM order_item WHERE order_id = ? AND item_id = ?");) {
-        statement.setLong(1, order_id);
-        statement.setLong(2, item_id);
-        return statement.executeUpdate();
-    } catch (Exception e) {
-        LOGGER.debug(e);
-        LOGGER.error(e.getMessage());
+    public int deleteItem(Long order_id, Long item_id) {
+        try (Connection connection = DBUtils.getInstance().getConnection();
+                PreparedStatement statement = connection
+                        .prepareStatement("DELETE FROM order_item WHERE order_id = ? AND item_id = ?");) {
+            statement.setLong(1, order_id);
+            statement.setLong(2, item_id);
+            return statement.executeUpdate();
+        } catch (Exception e) {
+            LOGGER.debug(e);
+            LOGGER.error(e.getMessage());
+        }
+        return 0;
     }
-    return 0;
-}
 
-
-
-public int deleteOrder(Long order_id) {
-    try (Connection connection = DBUtils.getInstance().getConnection();
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM orders_items WHERE order_id = ?");) {
-        statement.setLong(1, order_id);
-        return statement.executeUpdate();
-    } catch (Exception e) {
-        LOGGER.debug(e);
-        LOGGER.error(e.getMessage());
+    public int deleteOrder(Long order_id) {
+        try (Connection connection = DBUtils.getInstance().getConnection();
+                PreparedStatement statement = connection
+                        .prepareStatement("DELETE FROM orders_items WHERE order_id = ?");) {
+            statement.setLong(1, order_id);
+            return statement.executeUpdate();
+        } catch (Exception e) {
+            LOGGER.debug(e);
+            LOGGER.error(e.getMessage());
+        }
+        return 0;
     }
-    return 0;
-}
 
-@Override
-public OrderItem read(Long id) {
-    // TODO Auto-generated method stub
-    return null;
-}
+    @Override
+    public OrderItem read(Long id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-@Override
-public OrderItem update(OrderItem t) {
-    // TODO Auto-generated method stub
-    return null;
-}
+    @Override
+    public OrderItem update(OrderItem t) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-@Override
-public int delete(long id) {
-    // TODO Auto-generated method stub
-    return 0;
-}
+    @Override
+    public int delete(long id) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-public String calcTotal(Long order_id) {
-    String cost ="";
-    try(Connection connection = DBUtils.getInstance().getConnection();
-             
-        
+    public double calcTotal(Long order_id) {
+        double cost = 0;
+        try (Connection connection = DBUtils.getInstance().getConnection();
+
                 PreparedStatement statement = connection
                         .prepareStatement("SELECT a.order_id, SUM(a.quantity * b.value) AS result"
-                                + " FROM order_item a JOIN item_table b ON b.id  WHERE a.order_id = ?");)  {
-        statement.setLong(1, order_id);
-        ResultSet resultSet = statement.executeQuery();
-        resultSet.next();
-        cost =resultSet.getString(1);
-        
-        System.out.println(cost);
-      return cost; 
-        
-    } catch (Exception e) {
-        LOGGER.debug(e);
-        LOGGER.error(e.getMessage());
+                                + " FROM order_item a JOIN item_table b ON b.id  WHERE a.order_id = ?");) {
+            statement.setLong(1, order_id);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            cost = resultSet.getDouble("result");
+
+            System.out.println("TOTAL of your order is: " + cost);
+            return cost;
+
+        } catch (Exception e) {
+            LOGGER.debug(e);
+            LOGGER.error(e.getMessage());
+        }
+        System.out.println("this is not good");
+        return 0;
     }
-    return null;
-}
-    
+
 }
